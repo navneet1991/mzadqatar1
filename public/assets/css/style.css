@@ -1,0 +1,391 @@
+@charset "utf-8";
+/* CSS Document */
+
+@import url(http://fonts.googleapis.com/earlyaccess/droidarabickufi.css);
+
+body {font-family: 'Droid Arabic Kufi', sans-serif;  background:#fff; font-size:14px; color:#313638; }
+ 
+a{ outline:none; color:#29333e; outline:none !important; text-decoration:none;}
+
+a:hover{ outline:none !important; color:#9e2a5d; text-decoration:none;}
+
+label{ font-size:12px;}
+
+.font-wt-900 {
+	font-weight: 900;
+}
+.font-wt-600 {
+	font-weight: 600;
+}
+.font-wt-500 {
+	font-weight: 500;
+}
+.font-wt-400 {
+	font-weight: 400;
+}
+.font-wt-300 {
+	font-weight: 300;
+}
+.color-grey {
+	color: #808080;
+}
+.color-purple {
+	color: #9e2a5d;
+}
+
+.color-white {
+	color: #fff;
+}
+
+.color-dark-grey{ color:#232830;}
+
+.bold {
+	font-weight: bold;
+}
+.normal {
+	font-weight: normal;
+}
+
+.cursor {
+	cursor: pointer;
+}
+
+.btn-warning {
+  color: #fff;
+  background-color: #9e2a5d;
+  border-color: #9e2a5d;
+  width:190px;
+  height:60px;
+  line-height:40px;
+  border-radius:6px;
+}
+.btn-warning:focus,
+.btn-warning.focus {
+  color: #9e2a5d;
+  background-color: #fff;
+  border-color: #9e2a5d;
+}
+.btn-warning:hover {
+  color: #9e2a5d;
+  background-color: #fff;
+  border-color: #9e2a5d;
+}
+
+.btn-warning2 {
+  color: #fff;
+  background-color: #9e2a5d;
+  border-color: #9e2a5d;
+  width:260px;
+  height:60px;
+  line-height:40px;
+  border-radius:6px;
+}
+.btn-warning2:focus,
+.btn-warning2.focus {
+  color: #9e2a5d;
+  background-color: #fff;
+  border-color: #9e2a5d;
+}
+.btn-warning2:hover {
+  color: #9e2a5d;
+  background-color: #fff;
+  border-color: #9e2a5d;
+}
+
+
+.btn-info {
+  color: #fff;
+  background-color: #9e2a5d;
+  border-color: #9e2a5d;
+  line-height:40px;
+  border-radius:6px;
+}
+.btn-info:focus,
+.btn-info.focus {
+  color: #9e2a5d;
+  background-color: #fff;
+  border-color: #9e2a5d;
+}
+.btn-info:hover {
+  color: #9e2a5d;
+  background-color: #fff;
+  border-color: #9e2a5d;
+}
+
+
+.small-box{ position:relative; left:5px; z-index:10000; padding-left:30px; font-size:16px; color:#9fa2a4;}
+
+
+.form-control{ background:#fafafa; height:60px; border-radius:10px; border:1px solid #ccc !important; font-size:18px; padding:6px 20px; box-shadow:none !important; }
+
+.form-control:focus {
+   
+    box-shadow:none!important;
+    outline: 0 none;
+}
+.input-group .form-control:first-child, .input-group-addon:first-child, .input-group-btn:first-child > .btn, .input-group-btn:first-child > .btn-group > .btn, .input-group-btn:first-child > .dropdown-toggle, .input-group-btn:last-child > .btn:not(:last-child):not(.dropdown-toggle), .input-group-btn:last-child > .btn-group:not(:last-child) > .btn {
+    border-radius: 4px !important;
+}
+
+.input-group-addon{ background:#fafafa;}
+
+.input-group-addon:last-child {
+    border-bottom-color: #ccc;
+    border-left: 1px solid #ccc;
+    border-right: 0 none #ccc;
+    border-top-color: #ccc;
+	
+}
+.input-group .form-control:last-child, .input-group-addon:last-child, .input-group-btn:last-child > .btn, .input-group-btn:last-child > .btn-group > .btn, .input-group-btn:last-child > .dropdown-toggle, .input-group-btn:first-child > .btn:not(:first-child), .input-group-btn:first-child > .btn-group:not(:first-child) > .btn {
+    border-radius: 4px 0 0 4px !important;
+}
+
+.pad-left{ padding-left:0;}
+.pad-right{ padding-right:0;}
+
+.brdr-right{ border-right:1px solid #e6e6e6;}
+.brdr-right2{ border-right:1px solid #e6e6e6; position:relative; right:13px;}
+.white-sp{ white-space:nowrap;}
+.txt-space{ position:relative; right:10px;}
+.icon-space{ position:relative; left:5px;}
+
+
+/** padding **/
+.padding-0{padding: 0px !important;}
+.padding-5{padding: 5px}
+.padding-10{padding: 10px}
+.padding-15{padding: 15px}
+.padding-20{padding: 20px}
+.padding-25{padding: 25px}
+.padding-30{padding: 30px}
+.padding-35{padding: 35px}
+.padding-40{padding: 40px}
+.padding-45{padding: 45px}
+.padding-50{padding: 50px}
+
+
+/** padding-left **/
+.padding-l-0{padding-left: 0px}
+.padding-l-5{padding-left: 5px}
+.padding-l-10{padding-left: 10px}
+.padding-l-15{padding-left: 15px}
+.padding-l-20{padding-left: 20px}
+.padding-l-25{padding-left: 25px}
+.padding-l-27{padding-left: 27px}
+.padding-l-30{padding-left: 30px}
+.padding-l-35{padding-left: 35px}
+.padding-l-40{padding-left: 40px}
+.padding-l-45{padding-left: 45px}
+.padding-l-50{padding-left: 50px}
+
+
+/** padding-right **/
+.padding-r-0{padding-right: 0px}
+.padding-r-5{padding-right: 5px}
+.padding-r-10{padding-right: 10px}
+.padding-r-15{padding-right: 15px}
+.padding-r-20{padding-right: 20px}
+.padding-r-25{padding-right: 25px}
+.padding-r-30{padding-right: 30px}
+.padding-r-35{padding-right: 35px}
+.padding-r-40{padding-right: 40px}
+.padding-r-45{padding-right: 45px}
+.padding-r-50{padding-right: 50px}
+
+/** padding-top **/
+.padding-t-0{padding-top: 0px}
+.padding-t-5{padding-top: 5px}
+.padding-t-10{padding-top: 10px}
+.padding-t-15{padding-top: 15px}
+.padding-t-20{padding-top: 20px}
+.padding-t-25{padding-top: 25px}
+.padding-t-30{padding-top: 30px}
+.padding-t-35{padding-top: 35px}
+.padding-t-40{padding-top: 40px}
+.padding-t-45{padding-top: 45px}
+.padding-t-50{padding-top: 50px}
+
+/** padding-bottom **/
+.padding-b-0{padding-bottom: 0px}
+.padding-b-5{padding-bottom: 5px}
+.padding-b-10{padding-bottom: 10px}
+.padding-b-15{padding-bottom: 15px}
+.padding-b-20{padding-bottom: 20px}
+.padding-b-25{padding-bottom: 25px}
+.padding-b-30{padding-bottom: 30px}
+.padding-b-35{padding-bottom: 35px}
+.padding-b-40{padding-bottom: 40px}
+.padding-b-45{padding-bottom: 45px}
+.padding-b-50{padding-bottom: 50px}
+
+/** margins **/
+.margin-0{margin: 0px}
+.margin-5{margin: 5px}
+.margin-10{margin: 10px}
+.margin-15{margin: 15px}
+.margin-20{margin: 20px}
+.margin-25{margin: 25px}
+.margin-30{margin: 30px}
+.margin-35{margin: 35px}
+.margin-40{margin: 40px}
+.margin-45{margin: 45px}
+.margin-50{margin: 50px}
+
+/** margin-left **/
+.margin-l-0{margin-left: 0px}
+.margin-l-5{margin-left: 3px}
+.margin-l-10{margin-left: 10px}
+.margin-l-15{margin-left: 15px}
+.margin-l-20{margin-left: 20px}
+.margin-l-25{margin-left: 25px}
+.margin-l-30{margin-left: 30px}
+.margin-l-35{margin-left: 35px}
+.margin-l-40{margin-left: 40px}
+.margin-l-45{margin-left: 45px}
+.margin-l-50{margin-left: 50px}
+.margin-l-60{margin-left: 60px}
+.margin-l-80{margin-left: 25%}
+
+/** margin-right **/
+.margin-r-0{margin-right: 0px}
+.margin-r-5{margin-right: 5px}
+.margin-r-10{margin-right: 10px}
+.margin-r-15{margin-right: 15px}
+.margin-r-20{margin-right: 20px}
+.margin-r-25{margin-right: 25px}
+.margin-r-30{margin-right: 30px}
+.margin-r-35{margin-right: 35px}
+.margin-r-40{margin-right: 40px}
+.margin-r-45{margin-right: 45px}
+.margin-r-50{margin-right: 50px}
+
+
+/** margin-top **/
+
+.margin-t-1{position:relative; top:1px;}
+.margin-t-5{ position:relative; top:6px;}
+.margin-t-6{margin-top: 6px}
+.margin-t-3{margin-top: 3px}
+.margin-t-10{margin-top: 10px}
+.margin-t-15{margin-top: 15px}
+.margin-t-20{margin-top: 20px}
+.margin-t-24{margin-top: 24%;}
+.margin-t-25{margin-top: 25px}
+.margin-t-30{margin-top: 30px}
+.margin-t-35{margin-top: 35px}
+.margin-t-40{margin-top: 40px}
+.margin-t-45{margin-top: 45px}
+.margin-t-50{margin-top: 50px}
+.margin-t-55{margin-top: 55px}
+.margin-t-60{margin-top: 60px}
+.margin-t-70{margin-top: 70px}
+.margin-t-80{margin-top: 80px}
+.margin-t-100{margin-top: 100px}
+.margin-t-per{margin-top:12%;}
+.margin-t-10p{margin-top: 10%}
+
+
+/** margin-bottom **/
+.margin-b-0{margin-bottom: 0px}
+.margin-b-5{margin-bottom: 5px}
+.margin-b-10{margin-bottom: 10px}
+.margin-b-15{margin-bottom: 15px}
+.margin-b-18{margin-bottom: 17px}
+.margin-b-20{margin-bottom: 20px}
+.margin-b-25{margin-bottom: 25px}
+.margin-b-30{margin-bottom: 30px}
+.margin-b-35{margin-bottom: 35px}
+.margin-b-40{margin-bottom: 40px}
+.margin-b-45{margin-bottom: 45px}
+.margin-b-50{margin-bottom: 50px}
+
+
+/** Fonts-sizes **/
+.f-size-10{font-size: 10px;}
+.f-size-11{font-size: 11px;}
+.f-size-12{font-size: 12px;}
+.f-size-13{font-size: 13px;}
+.f-size-14{font-size: 14px;}
+.f-size-15{font-size: 15px;}
+.f-size-16{font-size: 16px;}
+.f-size-17{font-size: 17px;}
+.f-size-18{font-size: 18px;}
+.f-size-19{font-size: 19px;}
+.f-size-20{font-size: 20px;}
+.f-size-21{font-size: 21px;}
+.f-size-22{font-size: 22px;}
+.f-size-23{font-size: 23px;}
+.f-size-24{font-size: 24px;}
+.f-size-25{font-size: 25px;}
+.f-size-26{font-size: 26px;}
+.f-size-27{font-size: 27px;}
+.f-size-28{font-size: 28px;}
+.f-size-29{font-size: 29px;}
+.f-size-30{font-size: 30px;}
+.f-size-31{font-size: 31px;}
+.f-size-32{font-size: 32px;}
+.f-size-34{font-size: 34px;}
+.f-size-40{font-size: 40px;}
+.f-size-44{font-size: 44px;}
+.f-size-56{font-size: 56px;}
+.f-size-64{font-size: 64px;}
+.f-size-82{font-size: 82px;}
+
+
+/*Register page*/
+
+/**List **/
+
+.list{  margin:0; padding:0; width:100%;}
+.list ul{ list-style:none; margin-right:-47px;}
+.list ul li{ list-style:none;}
+.list ul li a{ list-style:none;  color:#9e2a5d; display:block; font-size:20px; padding:0 8px;  font-weight:bold; text-decoration:none; float:right;}
+.list ul li a:hover{ text-decoration:none;}
+
+
+/**right-box **/
+
+.right-box{ border:1px solid #ccc; border-radius:10px; padding:30px 30px 0 30px; float:right;}
+
+.right-box ul.list-features{ margin-left:62px; padding:0; list-style:none;}
+
+.right-box ul.list-features ul{  list-style:none;}
+
+.right-box ul.list-features li{ list-style:none; font-size:14px;  display:block; color:#808080; line-height:38px; text-decoration:none;  width:100%; }
+
+.right-box ul.list-features li i{ margin-left:6px;}
+
+
+
+
+/*login page*/
+
+
+ul.links-list{ margin:0; padding:0; float:right;}
+ul.links-list ul{ list-style:none;}
+ul.links-list li{ list-style:none; float:right;}
+ul.links-list li a{ list-style:none; float:left; display:block; font-size:18px; color:#292929; padding:5px; text-decoration:none;}
+ul.links-list li a:hover{ color:#9e2a5d;}
+ul.links-list li .current{ color:#9e2a5d;}
+
+.seprator{ border-left:1px solid #ccc; float:left;}
+
+.login-app-btn{ margin-right:40px;}
+
+
+
+/*After-login page*/
+
+.box{ margin-bottom:30px;}
+.box .box-inner{ border:1px solid #ccc; border-radius:6px; padding:10px;}
+.box .resend{ position:relative; width:100px;}
+.box .modification{ position:relative; left:-2px;}
+
+
+
+
+
+
+
+
+
