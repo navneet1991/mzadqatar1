@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', ' Register')
+@section('title', ' Register Page')
 @section('content')
     <div class="container">
 
@@ -28,7 +28,7 @@
                     <div class="list">
                         <ul>
                             <li><a href="javacript:void(0);">دخول /</a></li>
-                            <li><a href="register.html">تسجيل</a></li>
+                            <li><a href="{{url('/')}}/">تسجيل</a></li>
                         </ul>
                     </div>
                 </div>
@@ -44,7 +44,7 @@
             <div>
                 <div class="col-md-5 col-sm-5 col-xs-12 ">
 
-                   <form action="{{url('/register')}}" method="POST" class="form-horizontal" enctype="multipart/form-data">
+                   <form action="{{url('/register')}}" method="POST"  enctype="multipart/form-data">
                     {{ csrf_field() }}
 
                         <fieldset>
@@ -75,10 +75,21 @@
                                 <input type="password" class="form-control" placeholder="●●●●●●●●●●●●●●●●●●" name="password2">
                             </div>
 
-                            <button class="btn btn-warning f-size-14 margin-t-40 margin-b-40" style="line-height:45px;">
-                                <img src="assets/images/regiser_icon.png" width="32" height="32" alt="register_icon" class="margin-l-20">تسجيل جديد</button>
+
+
 
                         </fieldset>
+
+
+
+                       <div class="row">
+                           <div class="col-md-4 col-sm-12 col-xs-12 ">
+                               <button  class="btn btn-warning f-size-14 margin-t-40 margin-b-30"><img src="{{url('/')}}/assets/images/regiser_icon.png"  width="32" height="32" alt="register_icon" class="margin-l-5">تسجيل جديد</button>
+                           </div>
+                           <div class="col-md-4 col-sm-12 col-xs-12">
+                               <a href="{{url('/login')}}" class="btn btn-warning2 f-size-14 margin-t-40 margin-b-30 login-app-btn "><img src="assets/images/login.png"  alt="mob"> تسجيل  دخول</a>
+                           </div>
+                       </div>
                     </form>
                 </div>
                 <div class="col-md-1 col-sm-1 col-xs-1"></div>
