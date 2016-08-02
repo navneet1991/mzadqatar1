@@ -24,11 +24,7 @@ Route::get('register', function () {
     return view('register');
 });
 Route::get('login', function () {
-    $value = Session::get('id');
-    if($value):
-    return redirect('/userproducts');
-    endif;
-    return view('login');
+       return view('login');
 
 });
 Route::get('applogin', function () {
