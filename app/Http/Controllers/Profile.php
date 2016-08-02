@@ -6,8 +6,10 @@ use Illuminate\Http\Request;
 use Crypt;
 use App\Http\Requests;
 use DB;
+use Mail;
 class Profile extends Controller
 {
+    protected $email;
     /**
      * Display a listing of the resource.
      *
@@ -39,9 +41,10 @@ class Profile extends Controller
     {
 
         $this->validate($request, [
-            'email' => 'required',
-            'phone' => 'required',
-            'password1' => 'required',
+            'email' => 'required | unique:users1,user_email| Email',
+            'phone' => 'required | unique:users1,user_phone',
+            'password1' => 'required |Same:password2 | Between:5,10 ',
+            'password2' => 'required |Same:password1  Between:5,10'
         ]);
         $input = $request->all();
         $inserted=DB::table('users1')->insertGetId(['user_email' => $input['email'], 'user_phone' => $input['phone'] ,'user_password'=>md5($input['password1'])]
@@ -59,22 +62,19 @@ class Profile extends Controller
     public function show(Request $request)
     {
         $data = $request->session()->all();
-
-        if(isset($data['phone']))
-         return view('userproducts',['sessions'=>$data]);
-        else
-
+        if(isset($data['phone'])):
+        return view('userproducts',['sessions'=>$data]);
+        else:
         return redirect('/login');
+        endif;
         //
     }
-
-    public function edit($id)
-    {
-        //
-    }
-
     public function login(Request $request)
     {
+        $data = $request->session()->all();
+        if($data):
+        redirect();
+        endif;
         $this->validate($request, [
             'mobile' => 'required',
             'password' => 'required',
@@ -82,12 +82,15 @@ class Profile extends Controller
         $input = $request->all();
         $results = DB::table('users1')->where([
             ['user_phone', '=', $input['mobile']],
-            ['user_password', '=', md5($input['password'])],
-        ])->get();
+            ['user_password', '=', md5($input['password'])]
+        ])->orWhere('user_email', $input['mobile'])->get();
         if($results):
             $request->session()->put('phone', $input['mobile']);
             $request->session()->put('id', $results[0]->user_id);
             return redirect('/userproducts');
+
+        else:
+        return redirect('/login');
         endif;
 
 
@@ -121,22 +124,32 @@ class Profile extends Controller
             'email' => 'required'
 
         ]);
-        return redirect('/success');
 
-//        $input = $request->all();
-//        $results = DB::table('users1')->where([
-//            ['user_email', '=', $input['email']]
-//        ])->get();
-//        if($results):
-//            $secret= Crypt::encrypt($input['email']);
-//            $decrypted = Crypt::decrypt($secret);
-//            return redirect('/success');
-//        endif;
+        $input = $request->all();
+        $results = DB::table('users1')->where([
+            ['user_email', '=', $input['email']]
+        ])->get();
 
+        if($results):
+            $this->email=$results[0]->user_email;
+
+            $token=str_random(50);
+            DB::table('passwords_reset')->insert(
+                ['email' => $input['email'], 'token' => $token]
+            );
+           Mail::send('emailtemplate', ['token' => $token], function ($m) use ($input) {
+                $m->from('info@mzadqater.com', 'Reset Password');
+                $m->to($this->email, $this->email)->subject('Password Reset!');
+           });
+            return redirect('/success');
+        else:
+        return redirect('/reset-password');
+        endif;
 
 
         //
     }
+
     public function resetmobile(Request $request)
     {
         $this->validate($request, [
@@ -144,24 +157,36 @@ class Profile extends Controller
 
         ]);
         return redirect('/success');
-//        $input = $request->all();
-//        $results = DB::table('users1')->where([
-//            ['user_phone', '=', $input['mobile']]
-//        ])->get();
-//        if($results):
-//            $request->session()->put('phone', $input['mobile']);
-//            $request->session()->put('id', $results[0]->user_id);
-//            return redirect('/userproducts');
-//        endif;
-
-
-
-        //
-    }
-    public function updatepassword($token )
+}
+    public function updatepassword(Request $request )
     {
-        return view('update-password');
-        //
+        $token=$request->input('token');
+        $this->validate($request, [
+            'password1' => 'required',
+            'password2' => 'required'
+
+        ]);
+
+        $input = $request->all();
+        $results_token = DB::table('passwords_reset')->where([
+            ['token', '=', $token]
+        ])->get();
+
+        if($results_token):
+            $this->email=$results_token[0]->email;
+            DB::table('users1')
+                ->where('user_email', $this->email)
+                ->update(['user_password' => md5($input['password1'])]);
+            $results = DB::table('users1')->where([
+                ['user_email', '=', $this->email]
+            ])->get();
+
+            $request->session()->put('phone', $results[0]->user_phone);
+            $request->session()->put('id', $results[0]->user_id);
+            return redirect('/userproducts');
+        else:
+            return redirect('/update-password');
+        endif;
     }
     /**
      * Remove the specified resource from storage.

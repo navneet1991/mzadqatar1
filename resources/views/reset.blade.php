@@ -2,8 +2,8 @@
 @section('title', ' Reset Password')
 @section('content')
     <div class="container">
+        @include('errors.error');
         <div class="row">
-
             <div class="col-md-12 col-sm-12 col-xs-12">
                 <ol class="breadcrumb margin-t-40">
                     <li><a href="javacript:void(0);" class="f-size-12">الرئيسية</a></li>

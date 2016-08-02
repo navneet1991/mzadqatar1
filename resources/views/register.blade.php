@@ -2,24 +2,13 @@
 @section('title', ' Register Page')
 @section('content')
     <div class="container">
-
-        @if (count($errors) > 0)
-            <div class="alert alert-danger">
-                <ul>
-
-                    @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
-            </div>
-        @endif
-
+    @include('errors.error');
         <div class="row">
 
             <div class="col-md-12 col-sm-12 col-xs-12">
                 <ol class="breadcrumb margin-t-40">
                     <li><a href="javacript:void(0);" class="f-size-12">الرئيسية</a></li>
-                    <li><a href="login.html" class="active bold f-size-12">تسجيل دخول</a></li>
+                    <li><a href="javacript:void(0);" class="active bold f-size-12">تسجيل دخول</a></li>
                 </ol>
             </div>
 
@@ -58,6 +47,7 @@
                                     <span class="input-group-addon small-box" id="basic-addon2"> <span class="margin-l-15"> | </span> 974 +  </span>
                                 </div>
                             </div>
+
 
                             <div class="form-group margin-t-30">
                                 <label class="margin-b-20">البريد الإلكترونى</label>

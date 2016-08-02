@@ -1,7 +1,8 @@
 @extends('layouts.app')
-@section('title', ' Reset Password')
+@section('title', ' Update Password')
 @section('content')
     <div class="container">
+        @include('errors.error');
         <div class="row">
 
             <div class="col-md-12 col-sm-12 col-xs-12">
@@ -10,7 +11,6 @@
                     <li><a href="javacript:void(0);" class="active bold f-size-12">استعادة كلمة المرور</a></li>
                 </ol>
             </div>
-
             <div class="margin-t-30">
                 <div class="col-md-12 col-sm-12 col-xs-12">
                     <div class="list">
@@ -33,8 +33,9 @@
             <div>
                 <div class="col-md-6 col-sm-6 col-xs-12">
 
-                    <form action="{{url('/reset-password')}}" method="POST"  enctype="multipart/form-data">
+                    <form action="{{url('/update-password')}}" method="POST"  enctype="multipart/form-data">
                         {{ csrf_field() }}
+                        <input type="hidden" value="{{$token}}" name="token">
 
                         <fieldset>
 

@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', ' login page')
+@section('title', ' Succes Sent')
 @section('content')
 
     <div class="container">
@@ -39,8 +39,7 @@
 
                     <h1 class="f-size-20 bold color-dark-grey margin-t-40 padding-0">تم ارسال طلب استعادة كلمة المرور بنجاح</h1>
                     <p class="color-grey f-size-14  margin-t-10">
-                        جارى تحويلك الى الصفحة الرئيسية
-                    </p>
+افحص البريد الالكترونى الخاص بك                     </p>
 
 
                 </div>

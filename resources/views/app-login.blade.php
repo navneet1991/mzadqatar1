@@ -2,12 +2,13 @@
 @section('title', ' Application Login page')
 @section('content')
     <div class="container">
+        @include('errors.error');
         <div class="row">
 
             <div class="col-md-12 col-sm-12 col-xs-12">
                 <ol class="breadcrumb margin-t-40">
                     <li><a href="javacript:void(0);" class="f-size-12">الرئيسية</a></li>
-                    <li><a href="login.html" class="active bold f-size-12">تسجيل دخول</a></li>
+                    <li><a href="javacript:void(0);" class="active bold f-size-12">تسجيل دخول</a></li>
                 </ol>
             </div>
 
@@ -16,7 +17,7 @@
                     <div class="list">
                         <ul>
                             <li><a href="javacript:void(0);">دخول /</a></li>
-                            <li><a href="register.html">تسجيل</a></li>
+                            <li><a href="javacript:void(0);">تسجيل</a></li>
                         </ul>
                     </div>
                 </div>

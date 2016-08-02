@@ -2,18 +2,8 @@
 @section('title', ' Login page')
 @section('content')
     <div class="container">
-        @if (count($errors) > 0)
-            <div class="alert alert-danger">
-                <ul>
-
-                    @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
-            </div>
-        @endif
+        @include('errors.error');
         <div class="row">
-
             <div class="col-md-12 col-sm-12 col-xs-12">
                 <ol class="breadcrumb margin-t-40">
                     <li><a href="javacript:void(0);" class="f-size-12">الرئيسية</a></li>
@@ -50,9 +40,9 @@
                             <h1 class="f-size-20 bold color-dark-grey margin-t-15 padding-0">تسجيل دخول</h1>
 
                             <div class="form-group margin-t-40 padding-0">
-                                <label class="margin-b-20">رقم الجوال</label>
+                                <label class="margin-b-20">رقم الجوال او البريد الالكترونى </label>
                                 <div class="input-group">
-                                    <input type="text" class="form-control" placeholder="  رقم الجوال( قطر فقط)" aria-describedby="basic-addon2" name="mobile">
+                                    <input type="text" class="form-control" placeholder="  رقم الجوال( قطر فقط)  او البريد الالكترونى" aria-describedby="basic-addon2" name="mobile">
                                     <span class="input-group-addon small-box" id="basic-addon2"> <span class="margin-l-15"> | </span> 974 +  </span>
                                 </div>
                             </div>

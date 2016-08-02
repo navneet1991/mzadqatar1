@@ -11,19 +11,31 @@
 |
 */
 //use DB;
-
-Route::get('/',  'profile@index' );
-    //$users = DB::select('select * from users1 ');
-   //return view('welcome', ['tasks' => $users]);
+Route::get('/', function () {
+    return view('home');
+});
 
 
 Route::get('register', function () {
+    $value = Session::get('id');
+    if($value):
+        return redirect('/userproducts');
+    endif;
     return view('register');
 });
 Route::get('login', function () {
+    $value = Session::get('id');
+    if($value):
+    return redirect('/userproducts');
+    endif;
     return view('login');
+
 });
 Route::get('applogin', function () {
+    $value = Session::get('id');
+    if($value):
+        return redirect('/userproducts');
+    endif;
     return view('app-login');
 });
 
@@ -37,12 +49,12 @@ Route::get('reset-password', function () {
 });
 Route::post('/reset-password-email', 'profile@resetemail' );
 Route::post('/reset-password-mobile', 'profile@resetmobile' );
-Route::post('/update-password/{token}', 'profile@updatepassword' );
+Route::post('/update-password', 'profile@updatepassword' );
 Route::get('success', function () {
     return view('success');
 });
 Route::get('/update-password/{token}', function ($token) {
-    return view('update-password');
+    return view('update-password' ,['token'=>$token]);
 });
 Route::get('activation', function () {
     return view('activation');
