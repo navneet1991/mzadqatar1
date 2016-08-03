@@ -37,9 +37,9 @@ Route::get('applogin', function () {
 
 Route::post('/register', 'profile@store' );
 Route::post('/applogin', 'profile@applogin' );
-Route::post('/login', 'profile@login' );
-Route::get('/userproducts', 'profile@show' );
-Route::get('/logout', 'profile@logout' );
+Route::post('/login', 'Profile@login' );
+Route::get('/userproducts', 'Profile@show' );
+Route::get('/logout', 'Profile@logout' );
 Route::get('reset-password', function () {
     return view('reset');
 });
