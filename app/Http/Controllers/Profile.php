@@ -43,8 +43,8 @@ class Profile extends Controller
         $this->validate($request, [
             'email' => 'required | unique:users1,user_email| Email',
             'phone' => 'required | unique:users1,user_phone',
-            'password1' => 'required |Same:password2 | Between:5,10 ',
-            'password2' => 'required |Same:password1  Between:5,10'
+            'password1' => 'required | Between:5,10 ',
+            'password2' => 'required |Same:password1 |  Between:5,10'
         ]);
         $input = $request->all();
         $inserted=DB::table('users1')->insertGetId(['user_email' => $input['email'], 'user_phone' => $input['phone'] ,'user_password'=>md5($input['password1'])]
