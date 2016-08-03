@@ -35,17 +35,17 @@ Route::get('applogin', function () {
     return view('app-login');
 });
 
-Route::post('/register', 'profile@store' );
-Route::post('/applogin', 'profile@applogin' );
+Route::post('/register', 'Profile@store' );
+Route::post('/applogin', 'Profile@applogin' );
 Route::post('/login', 'Profile@login' );
 Route::get('/userproducts', 'Profile@show' );
 Route::get('/logout', 'Profile@logout' );
 Route::get('reset-password', function () {
     return view('reset');
 });
-Route::post('/reset-password-email', 'profile@resetemail' );
-Route::post('/reset-password-mobile', 'profile@resetmobile' );
-Route::post('/update-password', 'profile@updatepassword' );
+Route::post('/reset-password-email', 'Profile@resetemail' );
+Route::post('/reset-password-mobile', 'Profile@resetmobile' );
+Route::post('/update-password', 'Profile@updatepassword' );
 Route::get('success', function () {
     return view('success');
 });

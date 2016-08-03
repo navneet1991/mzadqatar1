@@ -4,10 +4,9 @@
     <div class="row">
         <div class="col-md-10 col-md-offset-1">
             <div class="panel panel-default">
-                <div class="panel-heading">Dashboard</div>
-                <div class="panel-body">
-                    You are logged in!
-                </div>
+                <div class="panel-heading">Dashboard <a href="{{url('/register')}}" >Register</a>  <a href="{{url('/login')}}" >Login</a> </div>
+                <div class="span12"><img src="assets/images/header-logo.png"></div>
+
             </div>
         </div>
     </div>

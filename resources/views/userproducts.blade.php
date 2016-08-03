@@ -24,7 +24,7 @@
 
             <div>
                 <div class="col-md-12 col-sm-12 col-xs-12">
-                   <p>اهلا : <strong><?php echo $sessions['phone'] ?></strong></p>
+                   <p>اهلا : <strong><?php echo $sessions['phone'] ?></strong> <a href="{{url('/logout')}}">خروج</a></p>
                     <p class="color-grey f-size-14 margin-t-10">يمكنك هنا متابعة الاعلانات التى قمت بإضافتها سابقا</p>
                     <hr class="margin-t-30">
                 </div>
