@@ -2,7 +2,6 @@
 @section('title', ' Register Page')
 @section('content')
     <div class="container">
-    @include('errors.error');
         <div class="row">
 
             <div class="col-md-12 col-sm-12 col-xs-12">
@@ -35,7 +34,7 @@
 
                    <form action="{{url('/register')}}" method="POST"  enctype="multipart/form-data">
                     {{ csrf_field() }}
-
+                       @include('errors.error')
                         <fieldset>
 
                             <h1 class="f-size-20 bold color-dark-grey margin-t-15 padding-0">تسجيل جديد</h1>

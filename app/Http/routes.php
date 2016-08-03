@@ -24,6 +24,10 @@ Route::get('register', function () {
     return view('register');
 });
 Route::get('login', function () {
+    $value = Session::get('id');
+    if($value):
+        return redirect('/userproducts');
+    endif;
        return view('login');
 
 });
@@ -46,13 +50,20 @@ Route::get('reset-password', function () {
 Route::post('/reset-password-email', 'Profile@resetemail' );
 Route::post('/reset-password-mobile', 'Profile@resetmobile' );
 Route::post('/update-password', 'Profile@updatepassword' );
+Route::post('/update-password-mobile', 'Profile@updatepasswordmobile' );
 Route::get('success', function () {
     return view('success');
+});
+Route::get('update-password-mobile', function () {
+    return view('update-password-mobile');
 });
 Route::get('/update-password/{token}', function ($token) {
     return view('update-password' ,['token'=>$token]);
 });
+
 Route::get('activation', function () {
     return view('activation');
 });
+Route::post('activate', 'Profile@activate' );
+
 

@@ -34,12 +34,14 @@
                     <h1 class="f-size-20 bold color-dark-grey margin-t-30 padding-0">تفعيل الرقم</h1>
                     <p class="color-purple f-size-15 margin-t-25">تم ارسال تنبيه لك من فضلك ادخل علي تنبيهاتك من علي التطبيق وادخل كود التعفيل المرسل لك</p>
 
-                    <form>
+                    <form action="{{url('/activate')}}" method="POST"  enctype="multipart/form-data">
+                        {{ csrf_field() }}
+                        @include('errors.error')
                         <fieldset>
 
                             <div class="form-group margin-t-30">
 
-                                <input type="text" class="form-control" placeholder="ادخل كود التفعيل">
+                                <input type="text" class="form-control" placeholder="ادخل كود التفعيل" name="code">
 
                                 <button class="btn btn-warning f-size-14 margin-t-40 margin-b-20">تفعيل</button>
 

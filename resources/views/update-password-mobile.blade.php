@@ -32,9 +32,9 @@
             <div>
                 <div class="col-md-6 col-sm-6 col-xs-12">
 
-                    <form action="{{url('/update-password')}}" method="POST"  enctype="multipart/form-data">
+                    <form action="{{url('/update-password-mobile')}}" method="POST"  enctype="multipart/form-data">
                         {{ csrf_field() }}
-                        <input type="hidden" value="{{$token}}" name="token">
+                        <input type="hidden" value="{{Session::get('mobile')}}" name="mobile">
                         @include('errors.error')
                         <fieldset>
 

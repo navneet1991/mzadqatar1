@@ -2,14 +2,15 @@
 @section('title', ' Login page')
 @section('content')
     <div class="container">
-        @include('errors.error');
-        <div class="row">
+           <div class="row">
+
             <div class="col-md-12 col-sm-12 col-xs-12">
                 <ol class="breadcrumb margin-t-40">
                     <li><a href="javacript:void(0);" class="f-size-12">الرئيسية</a></li>
                     <li><a href="login.html" class="active bold f-size-12">تسجيل دخول</a></li>
                 </ol>
             </div>
+
 
             <div class="margin-t-30">
                 <div class="col-md-12 col-sm-12 col-xs-12">
@@ -31,10 +32,11 @@
 
 
             <div>
+
                 <div class="col-md-5 col-sm-5 col-xs-12">
                     <form action="{{url('/login')}}" method="POST"  enctype="multipart/form-data">
                         {{ csrf_field() }}
-
+                        @include('errors.error')
                         <fieldset>
 
                             <h1 class="f-size-20 bold color-dark-grey margin-t-15 padding-0">تسجيل دخول</h1>
