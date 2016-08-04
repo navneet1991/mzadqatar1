@@ -33,7 +33,7 @@
             <div>
                 <div class="col-md-6 col-sm-6 col-xs-12">
 
-                    <form action="{{url('/applogin')}}" method="POST"  enctype="multipart/form-data">
+                    <form action="{{url('profile/applogin')}}" method="POST"  enctype="multipart/form-data">
                         {{ csrf_field() }}
                         @include('errors.error')
                         <fieldset>
@@ -65,7 +65,7 @@
                 <div class="col-md-6 col-sm-6 col-xs-12">
 
 
-                    <img src="assets/images/App_img.jpg" alt="app_img" class="img-responsive margin-t-25 margin-b-40 center-block">
+                    <img src="../assets/images/App_img.jpg" alt="app_img" class="img-responsive margin-t-25 margin-b-40 center-block">
 
 
                 </div>

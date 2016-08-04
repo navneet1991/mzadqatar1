@@ -32,7 +32,7 @@
             <div>
                 <div class="col-md-6 col-sm-6 col-xs-12">
 
-                    <form action="{{url('/update-password-mobile')}}" method="POST"  enctype="multipart/form-data">
+                    <form action="{{url('profile/update-password-mobile')}}" method="POST"  enctype="multipart/form-data">
                         {{ csrf_field() }}
                         <input type="hidden" value="{{Session::get('mobile')}}" name="mobile">
                         @include('errors.error')
@@ -59,7 +59,7 @@
 
                 <div class="col-md-6 col-sm-6 col-xs-12 ">
 
-                    <img src="{{url('/')}}/assets/images/lock_img.jpg" alt="lock" class="img-responsive  margin-t-100 margin-b-40 center-block">
+                    <img src="../assets/images/lock_img.jpg" alt="lock" class="img-responsive  margin-t-100 margin-b-40 center-block">
 
                 </div>
 

@@ -8,7 +8,7 @@
             <div class="col-md-12 col-sm-12 col-xs-12">
                 <ol class="breadcrumb margin-t-40">
                     <li><a href="javacript:void(0);" class="f-size-12">الرئيسية</a></li>
-                    <li><a href="reset-password.html" class="active bold f-size-12">استعادة كلمة المرور</a></li>
+                    <li><a href="javacript:void(0);" class="active bold f-size-12">استعادة كلمة المرور</a></li>
                 </ol>
             </div>
 
@@ -16,7 +16,7 @@
                 <div class="col-md-12 col-sm-12 col-xs-12">
                     <div class="list">
                         <ul>
-                            <li><a href="reset-password.html">استعادة كلمة المرور</a></li>
+                            <li><a href="javacript:void(0);">استعادة كلمة المرور</a></li>
                         </ul>
                     </div>
                 </div>
@@ -33,7 +33,7 @@
 
             <div>
                 <div class="col-md-2 col-sm-3 col-xs-3">
-                    <img src="assets/images/tick_icon.jpg" alt="success" class="img-responsive margin-r-30 margin-t-20">
+                    <img src="../assets/images/tick_icon.jpg" alt="success" class="img-responsive margin-r-30 margin-t-20">
                 </div>
                 <div class="col-md-10 col-sm-9 col-xs-9">
 

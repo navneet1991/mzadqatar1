@@ -31,7 +31,7 @@ class Profile extends Controller
         if($inserted):
             session(['phone' => $input['phone']]);
             session(['id' => $inserted]);
-        return redirect('/userproducts');
+        return redirect('profile/products');
         endif;
 
 
@@ -39,14 +39,53 @@ class Profile extends Controller
     }
     public function show(Request $request)
     {
-        $data = $request->session()->all();
-        if(isset($data['phone'])):
-        return view('userproducts',['sessions'=>$data]);
+        $sessions = $request->session()->all();
+        $user_id = \Session::get('id');
+        if(isset($user_id)):
+            $products = DB::table('products')->where([['users_user_id', '=', $user_id]])->get();
+            return view('profile.products',compact('sessions','products'));
         else:
-        \Session::flash('apploginmessage', 'Invalid mobile !');
-        return redirect('/login');
+            \Session::flash('apploginmessage', 'Invalid mobile !');
+            return redirect('profile/login');
         endif;
         //
+    }
+    public function profile(Request $request)
+    {
+        $user_id = \Session::get('id');
+        if(!$user_id):
+            return redirect('profile/login');
+        endif;
+        $results = DB::table('users1')->where([['user_id', '=', $user_id]])->first();
+        return view('profile.profile',['user_data'=>$results]);
+        //
+    }
+    public function update(Request $request)
+    {
+        $user_id = \Session::get('id');
+        if(!$user_id):
+            return redirect('profile/login');
+        endif;
+
+        $this->validate($request, [
+            'phone' => 'required',
+            'email' => 'required',
+
+
+        ]);
+
+            $input = $request->all();
+            DB::table('users1')
+                ->where('user_id', $user_id)
+                ->update(['user_phone' => $input['phone'],'user_email' => $input['email'],'user_name' => $input['name']]);
+            if(isset($input['password1'])) :
+                DB::table('users1')
+                    ->where('user_id', $user_id)
+                    ->update(['user_password' => md5($input['password1'])]);
+                endif;
+            $request->session()->put('phone', $input['phone']);
+            return redirect('profile/products');
+
     }
     public function login(Request $request)
     {
@@ -66,12 +105,12 @@ class Profile extends Controller
         if($results):
             $request->session()->put('phone', $input['mobile']);
             $request->session()->put('id', $results[0]->user_id);
-            return redirect('/userproducts');
+            return redirect('profile/products');
 
         else:
             \Session::flash('loginmessage', 'Invalid email or mobile !');
 
-            return redirect('/login');
+            return redirect('profile/login');
         endif;
         //
     }
@@ -90,7 +129,7 @@ class Profile extends Controller
             return redirect('update-password-mobile')->with('mobile',$this->phone);
         else:
             \Session::flash('loginmessage', 'Invalid Code !');
-            return redirect('/activation');
+            return redirect('profile/activation');
         endif;
 
     }
@@ -107,7 +146,7 @@ class Profile extends Controller
         if($results):
             $request->session()->put('phone', $input['mobile']);
             $request->session()->put('id', $results[0]->user_id);
-            return redirect('/userproducts');
+            return redirect('profile/products');
         endif;
 
 
@@ -133,14 +172,14 @@ class Profile extends Controller
             DB::table('passwords_reset')->insert(
                 ['email' => $input['email'], 'token' => $token]
             );
-           Mail::send('emailtemplate', ['token' => $token], function ($m) use ($input) {
+           Mail::send('profile.emailtemplate', ['token' => $token], function ($m) use ($input) {
                 $m->from('info@mzadqater.com', 'Reset Password');
                 $m->to($this->email, $this->email)->subject('Password Reset!');
            });
-        return redirect('/success');
+        return redirect('profile/success');
         else:
             \Session::flash('resetmessage', 'Email not existed !');
-            return redirect('/reset-password');
+            return redirect('profile/forget');
         endif;
 
 
@@ -160,10 +199,10 @@ class Profile extends Controller
                 ['userNumber' => $this->phone, 'notificationInfo' => $token]
             );
 
-            return redirect('/activation');
+            return redirect('profile/activation');
         else:
             \Session::flash('resetmessage2', 'Phone not existed !');
-            return redirect('/reset-password');
+            return redirect('profile/forget');
         endif;
 }
     public function updatepassword(Request $request )
@@ -191,9 +230,9 @@ class Profile extends Controller
 
             $request->session()->put('phone', $results[0]->user_phone);
             $request->session()->put('id', $results[0]->user_id);
-            return redirect('/userproducts');
+            return redirect('profile/products');
         else:
-            return redirect('/update-password');
+            return redirect('profile/forget');
         endif;
     }
     public function updatepasswordmobile(Request $request )
@@ -221,15 +260,36 @@ class Profile extends Controller
 
             $request->session()->put('phone', $results[0]->user_phone);
             $request->session()->put('id', $results[0]->user_id);
-            return redirect('/userproducts');
+            return redirect('profile/products');
         else:
-            return redirect('/update-password-mobile');
+            return redirect('profile/update-password-mobile');
         endif;
     }
     public function logout(Request $request)
     {
         $request->session()->flush();
-        return redirect('/login');
+        return redirect('profile/login');
+        //
+    }
+    public function add(Request $request)
+    {
+
+        $this->validate($request, [
+            'name_ar' => 'required',
+            'name_en' => 'required ',
+            'category' => 'required',
+            'price' => 'required'
+        ]);
+        $input = $request->all();
+        $inserted=DB::table('products')->insertGetId(['user_email' => $input['email'], 'user_phone' => $input['phone'] ,'user_password'=>md5($input['password1'])]
+        );
+        if($inserted):
+            session(['phone' => $input['phone']]);
+            session(['id' => $inserted]);
+            return redirect('profile/products');
+        endif;
+
+
         //
     }
 }

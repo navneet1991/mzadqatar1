@@ -16,54 +16,59 @@ Route::get('/', function () {
 });
 
 
-Route::get('register', function () {
+Route::get('profile/register', function () {
     $value = Session::get('id');
     if($value):
-        return redirect('/userproducts');
+        return redirect('profile/products');
     endif;
-    return view('register');
+    return view('profile.register');
 });
-Route::get('login', function () {
+Route::get('profile/login', function () {
     $value = Session::get('id');
     if($value):
-        return redirect('/userproducts');
+        return redirect('profile/products');
     endif;
-       return view('login');
+       return view('profile.login');
 
 });
-Route::get('applogin', function () {
+Route::get('profile/applogin', function () {
     $value = Session::get('id');
     if($value):
-        return redirect('/userproducts');
+        return redirect('profile/products');
     endif;
-    return view('app-login');
+    return view('profile.app-login');
 });
 
-Route::post('/register', 'Profile@store' );
-Route::post('/applogin', 'Profile@applogin' );
-Route::post('/login', 'Profile@login' );
-Route::get('/userproducts', 'Profile@show' );
-Route::get('/logout', 'Profile@logout' );
-Route::get('reset-password', function () {
-    return view('reset');
+Route::post('profile/register', 'Profile@store' );
+Route::post('profile/profile', 'Profile@update' );
+Route::post('profile/applog', 'Profile@applogin' );
+Route::post('profile/login', 'Profile@login' );
+Route::get('profile/products', 'Profile@show' );
+Route::get('profile/logout', 'Profile@logout' );
+Route::get('profile/forget', function () {
+    return view('profile.forget');
 });
-Route::post('/reset-password-email', 'Profile@resetemail' );
-Route::post('/reset-password-mobile', 'Profile@resetmobile' );
-Route::post('/update-password', 'Profile@updatepassword' );
-Route::post('/update-password-mobile', 'Profile@updatepasswordmobile' );
-Route::get('success', function () {
-    return view('success');
+Route::post('profile/reset-password-email', 'Profile@resetemail' );
+Route::post('profile/reset-password-mobile', 'Profile@resetmobile' );
+Route::post('profile/update-password', 'Profile@updatepassword' );
+Route::post('profile/update-password-mobile', 'Profile@updatepasswordmobile' );
+Route::get('profile/success', function () {
+    return view('profile.success');
 });
-Route::get('update-password-mobile', function () {
-    return view('update-password-mobile');
+Route::get('profile/update-password-mobile', function () {
+    return view('profile.update-password-mobile');
 });
-Route::get('/update-password/{token}', function ($token) {
-    return view('update-password' ,['token'=>$token]);
+Route::get('profile/update-password/{token}', function ($token) {
+    return view('profile.update-password' ,['token'=>$token]);
 });
 
-Route::get('activation', function () {
-    return view('activation');
+Route::get('profile/activation', function () {
+    return view('profile.activation');
 });
-Route::post('activate', 'Profile@activate' );
+Route::get('profile/profile', 'Profile@profile');
+Route::post('profile/activate', 'Profile@activate' );
+Route::post('profile/add', 'Profile@add' );
 
-
+Route::get('profile/add', function () {
+        return view('profile.add');
+});

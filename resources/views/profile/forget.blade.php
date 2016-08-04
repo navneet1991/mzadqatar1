@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', ' Reset Password')
+@section('title', ' Forget Password')
 @section('content')
     <div class="container">
         <div class="row">
@@ -32,7 +32,7 @@
             <div>
                 <div class="col-md-6 col-sm-6 col-xs-12">
 
-                    <form action="{{url('/reset-password-email')}}" method="POST"  enctype="multipart/form-data">
+                    <form action="{{url('profile/reset-password-email')}}" method="POST"  enctype="multipart/form-data">
                         {{ csrf_field() }}
                         @include('errors.error');
                         <fieldset>
@@ -45,7 +45,7 @@
 
                             <button  class="btn btn-warning f-size-14 margin-t-20 margin-b-20">استعادة كلمة المرور</button>
                     </form>
-                    <form action="{{url('/reset-password-mobile')}}" method="POST"  enctype="multipart/form-data">
+                    <form action="{{url('profile/reset-password-mobile')}}" method="POST"  enctype="multipart/form-data">
                         {{ csrf_field() }}
                             <div class="form-group margin-t-30 padding-0">
                                 <label class="margin-b-20">او عن طريق رقم الجوال</label>
@@ -65,7 +65,7 @@
 
                 <div class="col-md-6 col-sm-6 col-xs-12 ">
 
-                    <img src="assets/images/lock_img.jpg" alt="lock" class="img-responsive  margin-t-100 margin-b-40 center-block">
+                    <img src="../assets/images/lock_img.jpg" alt="lock" class="img-responsive  margin-t-100 margin-b-40 center-block">
 
                 </div>
 

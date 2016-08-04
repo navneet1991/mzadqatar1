@@ -1,13 +1,15 @@
 @extends('layouts.app')
-@section('title', ' Register Page')
+@section('title', ' profile Page')
 @section('content')
+
+
     <div class="container">
         <div class="row">
 
             <div class="col-md-12 col-sm-12 col-xs-12">
                 <ol class="breadcrumb margin-t-40">
                     <li><a href="javacript:void(0);" class="f-size-12">الرئيسية</a></li>
-                    <li><a href="javacript:void(0);" class="active bold f-size-12">تسجيل دخول</a></li>
+                    <li><a href="javacript:void(0);" class="active bold f-size-12">بيانات الحساب</a></li>
                 </ol>
             </div>
 
@@ -16,7 +18,7 @@
                     <div class="list">
                         <ul>
                             <li><a href="javacript:void(0);">دخول /</a></li>
-                            <li><a href="{{url('/')}}/">تسجيل</a></li>
+                            <li><a href="javacript:void(0);">تسجيل</a></li>
                         </ul>
                     </div>
                 </div>
@@ -32,17 +34,17 @@
             <div>
                 <div class="col-md-5 col-sm-5 col-xs-12 ">
 
-                   <form action="{{url('/register')}}" method="POST"  enctype="multipart/form-data">
+                   <form action="{{url('profile/profile')}}" method="POST"  enctype="multipart/form-data">
                     {{ csrf_field() }}
                        @include('errors.error')
                         <fieldset>
 
-                            <h1 class="f-size-20 bold color-dark-grey margin-t-15 padding-0">تسجيل جديد</h1>
+                            <h1 class="f-size-20 bold color-dark-grey margin-t-15 padding-0">بيانات الحساب</h1>
 
                             <div class="form-group margin-t-40">
                                 <label class="margin-b-20">رقم الجوال</label>
                                 <div class="input-group">
-                                    <input type="text" class="form-control" placeholder="  رقم الجوال( قطر فقط)" aria-describedby="basic-addon2" name="phone">
+                                    <input type="text" class="form-control" placeholder="  رقم الجوال( قطر فقط)" aria-describedby="basic-addon2" name="phone" value="{{$user_data->user_phone}}">
                                     <span class="input-group-addon small-box" id="basic-addon2"> <span class="margin-l-15"> | </span> 974 +  </span>
                                 </div>
                             </div>
@@ -50,18 +52,22 @@
 
                             <div class="form-group margin-t-30">
                                 <label class="margin-b-20">البريد الإلكترونى</label>
-                                <input type="text" class="form-control" placeholder="mail@website.com" name="email">
+                                <input type="text" class="form-control" placeholder="mail@website.com" name="email" value="{{$user_data->user_email}}">
                             </div>
 
 
                             <div class="form-group margin-t-30">
+                                <label class="margin-b-20">الاسم</label>
+                                <input type="text" class="form-control" placeholder="name" name="name" value="<?php echo isset($user_data->user_name)?  $user_data->user_name : ''?>">
+                            </div>
+                             <div class="form-group margin-t-30">
                                 <label class="margin-b-20">كلمة المرور</label>
-                                <input type="password" class="form-control" placeholder="●●●●●●●●●●●●●●●●●●" name="password1">
+                                <input type="password" class="form-control" placeholder="●●●●●●●●●●●●●●●●●●" name="password1" value="">
                             </div>
 
                             <div class="form-group margin-t-30">
                                 <label class="margin-b-20">تأكيد كلمة المرور</label>
-                                <input type="password" class="form-control" placeholder="●●●●●●●●●●●●●●●●●●" name="password2">
+                                <input type="password" class="form-control" placeholder="●●●●●●●●●●●●●●●●●●" name="password2" value="">
                             </div>
 
 
@@ -73,11 +79,9 @@
 
                        <div class="row">
                            <div class="col-md-4 col-sm-12 col-xs-12 ">
-                               <button  class="btn btn-warning f-size-14 margin-t-40 margin-b-30"><img src="{{url('/')}}/assets/images/regiser_icon.png"  width="32" height="32" alt="register_icon" class="margin-l-5">تسجيل جديد</button>
+                               <button  class="btn btn-warning f-size-14 margin-t-40 margin-b-30"><img src="../assets/images/regiser_icon.png"  width="32" height="32" alt="register_icon" class="margin-l-5">تعديل الحساب</button>
                            </div>
-                           <div class="col-md-4 col-sm-12 col-xs-12">
-                               <a href="{{url('/login')}}" class="btn btn-warning2 f-size-14 margin-t-40 margin-b-30 login-app-btn "><img src="assets/images/login.png"  alt="mob"> تسجيل  دخول</a>
-                           </div>
+
                        </div>
                     </form>
                 </div>

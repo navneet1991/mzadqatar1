@@ -17,7 +17,7 @@
                     <div class="list">
                         <ul>
                             <li><a href="javacript:void(0);">دخول /</a></li>
-                            <li><a href="{{url('/register')}}">تسجيل</a></li>
+                            <li><a href="javacript:void(0);">تسجيل</a></li>
                         </ul>
                     </div>
                 </div>
@@ -34,7 +34,7 @@
             <div>
 
                 <div class="col-md-5 col-sm-5 col-xs-12">
-                    <form action="{{url('/login')}}" method="POST"  enctype="multipart/form-data">
+                    <form action="{{url('profile/login')}}" method="POST"  enctype="multipart/form-data">
                         {{ csrf_field() }}
                         @include('errors.error')
                         <fieldset>
@@ -56,30 +56,30 @@
 
                     <div class="row">
                         <div class="col-md-4 col-sm-12 col-xs-12 ">
-                            <button  class="btn btn-warning f-size-14 margin-t-40 margin-b-30"><img src="assets/images/login.png"  alt="login" class="margin-l-5">تسجيل  دخول</button>
+                            <button  class="btn btn-warning f-size-14 margin-t-40 margin-b-30"><img src="../assets/images/login.png"  alt="login" class="margin-l-5">تسجيل  دخول</button>
                         </div>
                         <div class="col-md-8 col-sm-12 col-xs-12">
-                            <a href="{{url('/applogin')}}" class="btn btn-warning2 f-size-14 margin-t-40 margin-b-30 login-app-btn "><img src="assets/images/mob_img.jpg"  alt="mob"> تسجيل دخول بحسابك على التطبيق</a>
+                            <a href="{{url('profile/applogin')}}" class="btn btn-warning2 f-size-14 margin-t-40 margin-b-30 login-app-btn "><img src="../assets/images/mob_img.jpg"  alt="mob"> تسجيل دخول بحسابك على التطبيق</a>
                         </div>
                     </div>
                     </form>
                     <div>
                         <ul class="links-list">
-                            <li><a href="{{url('/password')}}">نسيت كلمة المرور ؟</a>
-                            <li><a href="{{url('/reset-password')}}" class="current">استعادة كلمة المرور</a>
+                            <li><a href="javacript:void(0);">نسيت كلمة المرور ؟</a>
+                            <li><a href="{{url('profile/forget')}}" class="current">استعادة كلمة المرور</a>
                         </ul>
                     </div>
                 </div>
                 <div class="col-md-1 col-sm-1 col-xs-1 hidden-xs">
-                    <img src="{{url('/')}}/assets/images/seprator.jpg" alt="seprtor" class=" margin-t-60 margin-r-50">
+                    <img src="../assets/images/seprator.jpg" alt="seprtor" class=" margin-t-60 margin-r-50">
                 </div>
                 <div class="col-md-5 col-sm-5 col-xs-12 ">
 
                     <h1 class="f-size-20 bold color-dark-grey margin-t-15">تسجيل عضوية جديدة</h1>
 
-                    <a  href="{{url('/register')}}" class="btn btn-info btn-block f-size-14 margin-t-80 margin-b-30"> <img src="assets/images/user_img.jpg"  alt="mob" class="margin-l-15">سجل جديد</a>
+                    <a  href="{{url('profile/register')}}" class="btn btn-info btn-block f-size-14 margin-t-80 margin-b-30"> <img src="../assets/images/user_img.jpg"  alt="mob" class="margin-l-15">سجل جديد</a>
 
-                    <a href="{{url('/applogin')}}" class="btn btn-info btn-block f-size-14 margin-t-80 margin-b-30"> <img src="assets/images/mob_img.jpg"  alt="mob" class="margin-l-15">تسجيل عضوية  بحسابك على التطبيق</a>
+                    <a href="{{url('profile/applogin')}}" class="btn btn-info btn-block f-size-14 margin-t-80 margin-b-30"> <img src="../assets/images/mob_img.jpg"  alt="mob" class="margin-l-15">تسجيل عضوية  بحسابك على التطبيق</a>
 
                 </div>
                 <div class="col-md-1 col-sm-1 col-xs-1">
