@@ -12,7 +12,7 @@
 */
 //use DB;
 Route::get('/', function () {
-    return view('home');
+    return view('profile/home');
 });
 
 
